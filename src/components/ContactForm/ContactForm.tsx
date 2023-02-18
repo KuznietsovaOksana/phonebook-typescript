@@ -3,6 +3,12 @@ import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
 import { nanoid } from 'nanoid';
 import { addContact } from '../../redux/contactsSlice';
 
+interface IContact {
+  name: string;
+  number: string;
+  id: string;
+}
+
 export const ContactForm: React.FC = () => {
   const [name, setName] = useState<string>('');
   const [number, setNumber] = useState<string>('');
@@ -22,7 +28,7 @@ export const ContactForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
 
-    const contact = {
+    const contact: IContact = {
       name,
       number,
       id: nanoid(),
