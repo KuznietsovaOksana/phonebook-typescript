@@ -2,12 +2,25 @@ import { useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
 import { nanoid } from 'nanoid';
 import { addContact } from '../../redux/contactsSlice';
+// import Button from '../Button/Button';
+import { Pink } from '../../stories/Button.stories';
 
 interface IContact {
   name: string;
   number: string;
   id: string;
 }
+
+const pinkButtonProps = {
+  radius: '10px',
+  type: 'submit',
+  border: '3px transparent solid',
+  color: 'pink',
+  height: '40px',
+  width: '200px',
+  children: 'Create',
+  cursor: 'pointer',
+};
 
 export const ContactForm: React.FC = () => {
   const [name, setName] = useState<string>('');
@@ -70,7 +83,7 @@ export const ContactForm: React.FC = () => {
           onChange={inputChange}
         />
       </div>
-      <button type="submit">Create</button>
+      <Pink {...pinkButtonProps} />
     </form>
   );
 };
