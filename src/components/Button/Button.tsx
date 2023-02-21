@@ -1,13 +1,13 @@
 import React from 'react';
 
 interface Props {
+  radius: string;
   type: string;
   border: string;
   color: string;
-  children?: React.ReactNode;
   height: string;
-  radius: string;
   width: string;
+  children: React.ReactNode;
   cursor: string;
 }
 

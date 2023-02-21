@@ -1,40 +1,37 @@
+import React from 'react';
 import Button from '../components/Button/Button';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'Button',
   component: Button,
   argTypes: {
     type: {
-      type: 'button',
-      description: 'Button type',
+      name: 'Type',
       defaultValue: 'button',
-      options: ['button', 'submit'],
-      control: {
-        type: 'radio',
-      },
+      description: 'Button type',
+      type: { name: 'string', required: true },
+      control: { type: 'select', options: ['button', 'submit', 'reset'] },
     },
     radius: {
-      type: 'string',
-      description: 'Border radius',
+      name: 'Radius',
       defaultValue: '5px',
       options: ['5px', '10px'],
-      control: {
-        type: 'radio',
-      },
+      description: 'Border radius',
+      type: { name: 'string', required: false },
+      control: { type: 'radio' },
     },
     color: {
-      type: 'string',
-      description: 'Background color',
+      name: 'Color',
       defaultValue: 'lightgrey',
-      options: ['lightgrey', 'pink', 'lightgreen', 'lightblue', 'tomato'],
-      control: {
-        type: 'select',
-      },
+      description: 'Button color',
+      type: { name: 'string', required: false },
+      control: { type: 'color' },
     },
   },
-};
+} as ComponentMeta<typeof Button>;
 
-const Template = arg => <Button {...arg} />;
+const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
